@@ -1,0 +1,54 @@
+{
+    "name": "n2-stitch-mcp",
+    "version": "1.0.0",
+    "description": "Resilient MCP proxy for Google Stitch — 3-layer safety (auto-retry, token refresh, TCP drop recovery). Never lose a generation again!",
+    "type": "module",
+    "main": "index.js",
+    "bin": {
+        "n2-stitch-mcp": "index.js"
+    },
+    "files": [
+        "index.js",
+        "src",
+        "README.md",
+        "LICENSE"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/choihyunsus/n2-stitch-mcp"
+    },
+    "homepage": "https://nton2.com",
+    "bugs": {
+        "url": "https://github.com/choihyunsus/n2-stitch-mcp/issues"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "test": "node test.js"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "keywords": [
+        "mcp",
+        "mcp-server",
+        "google-stitch",
+        "stitch",
+        "ui-generation",
+        "ai-design",
+        "resilient-proxy",
+        "tcp-recovery",
+        "auto-retry",
+        "ai-tools",
+        "ai-agent",
+        "claude",
+        "cursor",
+        "antigravity",
+        "gemini"
+    ],
+    "author": "Nton2 <nton2@nton2.com> (https://nton2.com)",
+    "license": "MIT",
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.12.1",
+        "google-auth-library": "^9.15.1"
+    }
+}
