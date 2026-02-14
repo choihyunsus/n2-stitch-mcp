@@ -1,0 +1,28 @@
+{
+    "name": "n2-cloud",
+    "version": "1.0.0",
+    "description": "N2 Cloud Gateway — Resilient MCP proxy for Google Stitch with BYOK auth, rate limiting, and TCP drop recovery",
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "NODE_ENV=development node server.js",
+        "test": "node test.js",
+        "create-key": "node scripts/create-key.js"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.12.1",
+        "better-sqlite3": "^12.6.2",
+        "cookie-parser": "^1.4.7",
+        "dotenv": "^17.3.1",
+        "express": "^4.21.0",
+        "google-auth-library": "^9.15.1",
+        "jsonwebtoken": "^9.0.3"
+    },
+    "author": "Nton2 <nton2@nton2.com> (https://nton2.com)",
+    "license": "MIT",
+    "private": true
+}

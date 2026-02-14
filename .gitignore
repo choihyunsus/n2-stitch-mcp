@@ -1,4 +1,10 @@
 node_modules/
-*.log
+cloud/node_modules/
+cloud/data/*.db
+cloud/data/*.db-shm
+cloud/data/*.db-wal
+cloud/data/users.json
+cloud/data/oauth-users.json
 .env
+*.log
 .DS_Store

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="N2 Cloud — Access Google Stitch API without the setup pain. Zero config, instant access, cloud MCP proxy.">
+    <meta name="theme-color" content="#060612">
+
+    <title>N2 Cloud — Google Stitch, Without the Setup Pain</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/theme.css?v=10">
+    <link rel="stylesheet" href="/css/layout.css?v=10">
+    <link rel="stylesheet" href="/css/components.css?v=10">
+    <link rel="stylesheet" href="/css/pages.css?v=10">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%2363b3ed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z'/></svg>">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="nav" id="nav">
+            <div class="nav__inner">
+                <a class="nav__logo" data-navigate="#landing">
+                    <span class="nav__logo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+                        </svg></span>
+                    N2 Cloud
+                </a>
+                <ul class="nav__links" id="nav-links">
+                    <li><a class="nav__link" data-navigate="#landing">Home</a></li>
+                    <li><a class="nav__link" data-navigate="#docs">Docs</a></li>
+                    <li><a class="nav__link" data-navigate="#billing">Pricing</a></li>
+                </ul>
+                <div class="nav__actions">
+                    <!-- Auth buttons dynamically injected by main.js -->
+                    <button class="nav__hamburger" id="nav-hamburger" aria-label="Menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+            <div class="nav__mobile-menu" id="nav-mobile-menu">
+                <a class="nav__link" data-navigate="#landing">Home</a>
+                <a class="nav__link" data-navigate="#docs">Docs</a>
+                <a class="nav__link" data-navigate="#billing">Pricing</a>
+                <!-- Auth links dynamically injected by main.js -->
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main id="app-content"></main>
+
+
+
+        <!-- Toast Container -->
+        <div class="toast-container" id="toast-container"></div>
+    </div>
+
+    <!-- JS Modules -->
+    <script type="module" src="/js/main.js?v=10"></script>
+</body>
+
+</html>
