@@ -1,15 +1,14 @@
 # Dependencies
 node_modules/
+package-lock.json
 
-# Cloud server (private)
+# Cloud server (private infra)
 cloud/
 
 # Internal
 _history/
 skills/
 test.js
-cloud/test.js
-cloud/scripts/
 
 # Environment
 .env
@@ -20,4 +19,3 @@ cloud/scripts/
 
 # Backup files
 *.bak
-cloud.bak*/
