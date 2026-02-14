@@ -2,25 +2,13 @@
 /**
  * N2 Stitch MCP — Entry Point
  * 
- *   ╔═══════════════════════════════════════════════════════════╗
- *   ║  N2 Stitch MCP Proxy Server                             ║
- *   ║                                                          ║
- *   ║  A resilient STDIO MCP proxy for Google Stitch.          ║
- *   ║  Built by the N2 AI Family (Rose 🌹 & Jennie 💎)        ║
- *   ║                                                          ║
- *   ║  3-Layer Safety Architecture:                            ║
- *   ║    L1 — Exponential-backoff retry (network errors)       ║
- *   ║    L2 — Auto token refresh on 401                        ║
- *   ║    L3 — TCP drop recovery via polling for generation     ║
- *   ║                                                          ║
- *   ║  v3.0: Cloud mode (--cloud) for N2 Cloud proxy          ║
- *   ╚═══════════════════════════════════════════════════════════╝
+ * A resilient STDIO MCP proxy for Google Stitch.
+ * 3-Layer Safety: retry → token refresh → polling recovery
  * 
  * Usage:
- *   node index.js              # Run with gcloud ADC (local)
- *   STITCH_API_KEY=xxx node index.js  # Run with API key (local)
- *   node index.js --cloud      # Run via N2 Cloud proxy
- *   STITCH_DEBUG=1 node index.js      # Enable debug logging
+ *   npx n2-stitch-mcp               # Local mode (gcloud ADC)
+ *   npx n2-stitch-mcp --cloud       # Cloud mode (N2 Cloud proxy)
+ *   npx n2-stitch-mcp init          # Setup wizard
  */
 
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
