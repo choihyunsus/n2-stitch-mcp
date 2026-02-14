@@ -53,12 +53,12 @@ export class SessionManager {
      * Returns { transport, isNew, sessionId }
      */
     async getOrCreateSession(n2ApiKey, user) {
-        // Check if user already has a session
+        // If user already has a session, close it first (new initialize = fresh start)
         for (const [sid, session] of this.sessions) {
             if (session.n2ApiKey === n2ApiKey) {
-                session.lastActivity = Date.now();
-                this.logger.info(`Reusing session ${sid} for ${user.name}`);
-                return { session, isNew: false, sessionId: sid };
+                this.logger.info(`Closing stale session ${sid} for ${user.name} (re-initialize)`);
+                this.closeSession(sid);
+                break;
             }
         }
 
