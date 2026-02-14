@@ -1,6 +1,6 @@
 {
     "name": "n2-stitch-mcp",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Resilient MCP proxy for Google Stitch — 3-layer safety (auto-retry, token refresh, TCP drop recovery). Supports local mode and N2 Cloud proxy (--cloud). Never lose a generation again!",
     "type": "module",
     "main": "index.js",

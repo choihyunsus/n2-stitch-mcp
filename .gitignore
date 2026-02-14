@@ -8,3 +8,7 @@ cloud/data/oauth-users.json
 .env
 *.log
 .DS_Store
+
+# Backup files
+*.bak
+cloud.bak*/
