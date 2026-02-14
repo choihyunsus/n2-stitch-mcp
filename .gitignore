@@ -1,12 +1,8 @@
 # Dependencies
 node_modules/
-cloud/node_modules/
 
-# Data & DB
-cloud/data/
-*.db
-*.db-shm
-*.db-wal
+# Cloud server (private)
+cloud/
 
 # Internal
 _history/
