@@ -3,10 +3,12 @@
  * 
  * Loads configuration from environment variables with sensible defaults.
  * Supports both API Key and gcloud ADC (Application Default Credentials).
+ * v3.0: Added Cloud mode support (--cloud flag).
  */
 
 // ── Defaults ────────────────────────────────────────────────
 const DEFAULT_STITCH_HOST = 'https://stitch.googleapis.com/mcp';
+const DEFAULT_CLOUD_URL = 'https://cloud.nton2.com';
 
 // Auth: tokens expire at 60 min; refresh at 50 for safety margin
 const TOKEN_REFRESH_INTERVAL_MS = 50 * 60 * 1000;
@@ -34,6 +36,10 @@ export function loadConfig() {
         apiKey: process.env.STITCH_API_KEY || '',
         projectId: process.env.STITCH_PROJECT_ID || process.env.GOOGLE_CLOUD_PROJECT || '',
 
+        // Cloud mode (--cloud flag)
+        n2ApiKey: process.env.N2_API_KEY || '',
+        cloudUrl: process.env.N2_CLOUD_URL || DEFAULT_CLOUD_URL,
+
         // Feature flags
         debug: process.env.STITCH_DEBUG === '1',
 
@@ -57,4 +63,8 @@ export function loadConfig() {
 
 export function useApiKey(config) {
     return !!config.apiKey;
+}
+
+export function useCloudMode() {
+    return process.argv.includes('--cloud');
 }

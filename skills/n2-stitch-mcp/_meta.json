@@ -1,0 +1,20 @@
+{
+    "slug": "n2-stitch-mcp",
+    "version": "1.0.0",
+    "description": "Resilient MCP proxy for Google Stitch — 3-layer safety (auto-retry, token refresh, TCP drop recovery). Never lose a generation again!",
+    "author": "Nton2",
+    "license": "MIT",
+    "homepage": "https://nton2.com",
+    "repository": "https://github.com/choihyunsus/n2-stitch-mcp",
+    "tags": [
+        "stitch",
+        "google-stitch",
+        "mcp",
+        "ui-generation",
+        "ai-design",
+        "resilient",
+        "tcp-recovery",
+        "proxy",
+        "ai-tools"
+    ]
+}
