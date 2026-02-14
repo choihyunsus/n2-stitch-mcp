@@ -359,8 +359,8 @@ function _plans() {
         </tr>
       </thead>
       <tbody>
-        <tr><td>Stitch Generations</td><td>20/month</td><td>Unlimited</td><td>Unlimited</td></tr>
-        <tr><td>Search Queries</td><td>200/month</td><td>Unlimited</td><td>Unlimited</td></tr>
+        <tr><td>Stitch Generations</td><td>50/month</td><td>Unlimited</td><td>Unlimited</td></tr>
+        <tr><td>Search Queries</td><td>500/month</td><td>Unlimited</td><td>Unlimited</td></tr>
         <tr><td>API Keys</td><td>1</td><td>3</td><td>10</td></tr>
         <tr><td>Team Members</td><td>1</td><td>1</td><td>5</td></tr>
         <tr><td>Priority Processing</td><td>—</td><td>✓</td><td>✓</td></tr>
@@ -372,7 +372,7 @@ function _plans() {
 
     <div class="alert alert--success" style="margin-top:var(--space-8);">
       <span class="alert__icon">🎉</span>
-      <div><strong>Free tier is generous!</strong> 20 Stitch generations/month is plenty for personal projects and prototyping.</div>
+      <div><strong>Free tier is generous!</strong> 50 Stitch generations/month is plenty for personal projects and prototyping.</div>
     </div>
   `;
 }

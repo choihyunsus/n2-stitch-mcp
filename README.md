@@ -1,13 +1,13 @@
 # 🌐 N2 Stitch MCP
 
-> Google Stitch API를 쉽게 사용할 수 있는 MCP 프록시 서버 + N2 Cloud 웹 서비스.  
-> Stitch의 UI 디자인 자동 생성 기능을 MCP 프로토콜로 래핑하여, API 키 관리·빌링·모니터링 대시보드를 제공.
+> MCP proxy for Google Stitch API — the easiest way to generate UI designs with AI.  
+> Wraps Stitch's UI generation capabilities in the MCP protocol, with API key management, billing dashboard, and monitoring.
 
 ## 🚀 Quick Start
 
 ### Option 1: Local Mode (Direct Stitch Connection)
 
-gcloud 인증 또는 Stitch API Key로 직접 연결:
+Connect directly with gcloud credentials or a Stitch API Key:
 
 ```json
 {
@@ -25,7 +25,7 @@ gcloud 인증 또는 Stitch API Key로 직접 연결:
 
 ### Option 2: Cloud Mode — ⭐ Recommended
 
-**gcloud 설치 불필요!** N2 Cloud를 통해 Stitch API 사용:
+**No gcloud required!** Use Stitch API through N2 Cloud:
 
 ```json
 {
@@ -41,9 +41,15 @@ gcloud 인증 또는 Stitch API Key로 직접 연결:
 }
 ```
 
-1. [cloud.nton2.com](https://cloud.nton2.com) 에서 무료 API Key 발급
-2. 위 설정을 MCP 클라이언트에 추가
-3. 끝! 🎉
+1. [cloud.nton2.com](https://cloud.nton2.com) — Get your free API Key (GitHub or Google login)
+2. Add the config above to your MCP client
+3. Done! 🎉
+
+**Free tier includes:**
+- ✅ 50 Stitch generations/month
+- ✅ 500 search queries/month
+- ✅ No gcloud CLI needed
+- ✅ No billing setup required
 
 ## ⚙️ Environment Variables
 

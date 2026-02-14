@@ -26,8 +26,8 @@ export const CONFIG = {
             priceYearly: '$0',
             period: '/month',
             features: [
-                '20 Stitch generations/month',
-                '200 search queries/month',
+                '50 Stitch generations/month',
+                '500 search queries/month',
                 '1 API key',
                 'Community support',
                 'Standard priority',
@@ -111,7 +111,7 @@ export const CONFIG = {
         },
         {
             q: 'How does pricing work?',
-            a: 'We offer a generous free tier with 20 Stitch generations/month. Pro and Team plans provide unlimited usage, priority processing, and team features.',
+            a: 'We offer a generous free tier with 50 Stitch generations/month. Pro and Team plans provide unlimited usage, priority processing, and team features.',
         },
         {
             q: 'Is my Stitch API key secure?',

@@ -44,7 +44,7 @@ export function decryptApiKey(encryptedKey, secret) {
 // ── Plan Limits ──────────────────────────────────────────
 
 export const PLAN_LIMITS = {
-    free: { stitch_per_month: 20, search_per_month: 200, max_keys: 1 },
+    free: { stitch_per_month: 50, search_per_month: 500, max_keys: 1 },
     pro: { stitch_per_month: -1, search_per_month: -1, max_keys: 3 },
     team: { stitch_per_month: -1, search_per_month: -1, max_keys: 10 },
 };
@@ -87,7 +87,7 @@ export function checkRateLimit(user, service) {
 
     // Re-import PLAN_LIMITS inline to avoid circular
     const limits = {
-        free: { stitch_per_month: 20, search_per_month: 200 },
+        free: { stitch_per_month: 50, search_per_month: 500 },
         pro: { stitch_per_month: -1, search_per_month: -1 },
         team: { stitch_per_month: -1, search_per_month: -1 },
     };

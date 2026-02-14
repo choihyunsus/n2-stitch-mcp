@@ -33,10 +33,10 @@ export async function renderDashboard() {
     const planBadge = _planBadge(user.plan);
     const providerIcons = (user.connections || []).map(c => _providerIcon(c.provider)).join('');
     const usage = user.usage || { stitch_calls: 0, search_calls: 0 };
-    const stitchLimit = user.plan === 'free' ? 20 : '∞';
-    const searchLimit = user.plan === 'free' ? 200 : '∞';
-    const stitchPct = user.plan === 'free' ? Math.min(100, (usage.stitch_calls / 20) * 100) : 0;
-    const searchPct = user.plan === 'free' ? Math.min(100, (usage.search_calls / 200) * 100) : 0;
+    const stitchLimit = user.plan === 'free' ? 50 : '∞';
+    const searchLimit = user.plan === 'free' ? 500 : '∞';
+    const stitchPct = user.plan === 'free' ? Math.min(100, (usage.stitch_calls / 50) * 100) : 0;
+    const searchPct = user.plan === 'free' ? Math.min(100, (usage.search_calls / 500) * 100) : 0;
 
     const maskedKey = user.n2ApiKey
         ? user.n2ApiKey.slice(0, 15) + '•'.repeat(16) + user.n2ApiKey.slice(-4)

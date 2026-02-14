@@ -49,12 +49,12 @@ function _renderDashboard() {
       <div class="billing-usage" id="usage-grid">
         <div class="billing-usage__item">
           <div class="billing-usage__label">Stitch Generations</div>
-          <div class="billing-usage__value" id="usage-stitch">0 / 20</div>
+          <div class="billing-usage__value" id="usage-stitch">0 / 50</div>
           <div class="progress"><div class="progress__bar" style="width:0%"></div></div>
         </div>
         <div class="billing-usage__item">
           <div class="billing-usage__label">Search Queries</div>
-          <div class="billing-usage__value" id="usage-search">0 / 200</div>
+          <div class="billing-usage__value" id="usage-search">0 / 500</div>
           <div class="progress"><div class="progress__bar" style="width:0%"></div></div>
         </div>
       </div>
@@ -181,7 +181,7 @@ function _updateUsageDisplay(usage) {
   const searchEl = document.getElementById('usage-search');
 
   if (stitchEl && usage.stitch_used !== undefined) {
-    const limit = usage.stitch_limit || 20;
+    const limit = usage.stitch_limit || 50;
     const used = usage.stitch_used || 0;
     const pct = limit > 0 ? Math.min((used / limit) * 100, 100) : 0;
     stitchEl.textContent = `${used} / ${limit === -1 ? '∞' : limit}`;
@@ -193,7 +193,7 @@ function _updateUsageDisplay(usage) {
   }
 
   if (searchEl && usage.search_used !== undefined) {
-    const limit = usage.search_limit || 200;
+    const limit = usage.search_limit || 500;
     const used = usage.search_used || 0;
     const pct = limit > 0 ? Math.min((used / limit) * 100, 100) : 0;
     searchEl.textContent = `${used} / ${limit === -1 ? '∞' : limit}`;
