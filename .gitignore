@@ -11,6 +11,7 @@ cloud/data/
 # Internal
 _history/
 skills/
+test.js
 cloud/test.js
 cloud/scripts/
 
