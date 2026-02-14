@@ -184,24 +184,55 @@ app.post('/mcp', authMiddleware, async (req, res) => {
         if (!sessionId && isInitializeRequest(req.body)) {
             logger.info(`New MCP session request from ${req.n2User.name} (${req.n2User.plan})`);
 
-            // Create user's MCP server session
-            const { session } = await sessionManager.getOrCreateSession(req.n2ApiKey, req.n2User);
+            // Create or reuse user's MCP server session
+            const { session, isNew, sessionId: existingSessionId } = await sessionManager.getOrCreateSession(req.n2ApiKey, req.n2User);
 
-            // Create Streamable HTTP transport
-            const transport = new StreamableHTTPServerTransport({
-                sessionIdGenerator: () => randomUUID(),
-                onsessioninitialized: (sid) => {
-                    transports.set(sid, { transport, n2ApiKey: req.n2ApiKey });
-                    logger.info(`Transport registered: ${sid} for ${req.n2User.name}`);
-                },
-            });
+            if (isNew) {
+                // Create Streamable HTTP transport for new session
+                const transport = new StreamableHTTPServerTransport({
+                    sessionIdGenerator: () => randomUUID(),
+                    onsessioninitialized: (sid) => {
+                        transports.set(sid, { transport, n2ApiKey: req.n2ApiKey });
+                        // Store transport reference in session for reuse
+                        session.transport = transport;
+                        session.transportSessionId = sid;
+                        logger.info(`Transport registered: ${sid} for ${req.n2User.name}`);
+                    },
+                });
 
-            // Connect MCP server to transport
-            const mcpServer = session.mcpServer.getServer();
-            await mcpServer.connect(transport);
+                // Connect MCP server to transport
+                const mcpServer = session.mcpServer.getServer();
+                await mcpServer.connect(transport);
 
-            // Handle the initialize request
-            await transport.handleRequest(req, res, req.body);
+                // Handle the initialize request
+                await transport.handleRequest(req, res, req.body);
+            } else {
+                // Reuse existing session's transport
+                if (session.transport && session.transportSessionId) {
+                    // Re-register in transport map (may have been cleaned)
+                    transports.set(session.transportSessionId, { transport: session.transport, n2ApiKey: req.n2ApiKey });
+                    await session.transport.handleRequest(req, res, req.body);
+                } else {
+                    // Session exists but transport was lost — destroy and recreate
+                    logger.warn(`Session ${existingSessionId} has no transport, destroying and recreating`);
+                    sessionManager.closeSession(existingSessionId);
+
+                    // Recreate
+                    const { session: newSession } = await sessionManager.getOrCreateSession(req.n2ApiKey, req.n2User);
+                    const transport = new StreamableHTTPServerTransport({
+                        sessionIdGenerator: () => randomUUID(),
+                        onsessioninitialized: (sid) => {
+                            transports.set(sid, { transport, n2ApiKey: req.n2ApiKey });
+                            newSession.transport = transport;
+                            newSession.transportSessionId = sid;
+                            logger.info(`Transport re-registered: ${sid} for ${req.n2User.name}`);
+                        },
+                    });
+                    const mcpServer = newSession.mcpServer.getServer();
+                    await mcpServer.connect(transport);
+                    await transport.handleRequest(req, res, req.body);
+                }
+            }
             return;
         }
 
