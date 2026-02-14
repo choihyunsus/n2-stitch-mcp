@@ -5,11 +5,34 @@
 
 ## 🚀 Quick Start
 
-### Option 1: Local Mode (Direct Stitch Connection)
+### Option A: Cloud Mode ⭐ Recommended
 
 Connect directly with gcloud credentials or a Stitch API Key:
 
-```json
+```jsonc
+// MCP client config (Claude, Cursor, Windsurf, etc.)
+{
+  "mcpServers": {
+    "n2-stitch": {
+      "command": "npx",
+      "args": ["-y", "n2-stitch-mcp", "--cloud"],
+      "env": {
+        "N2_API_KEY": "n2_sk_live_your_key_here"
+      }
+    }
+  }
+}
+```
+
+1. Get your free API key at [cloud.nton2.com](https://cloud.nton2.com)
+2. Add the config above to your MCP client
+3. Done! 🎉
+
+### Option B: Local Mode
+
+Direct connection using gcloud ADC or a Stitch API key:
+
+```jsonc
 {
   "mcpServers": {
     "n2-stitch": {
@@ -68,35 +91,34 @@ L2 — Auto token refresh on 401 (gcloud ADC mode)
 L3 — TCP drop recovery via polling (generation never lost)
 ```
 
-## �📁 Project Structure
+## ⚙️ Environment Variables
 
-| Folder/File | Description |
-|-------------|-------------|
-| `cloud/` | N2 Cloud web service (frontend + backend) |
-| `src/` | MCP server source code |
-| `src/cloud-client.js` | STDIO ↔ HTTP bridge for `--cloud` mode |
-| `skills/` | Stitch design skill definitions |
-| `_history/` | Work history + specs |
-| `index.js` | MCP server entry point |
+| Variable | Mode | Description |
+|----------|------|-------------|
+| `STITCH_API_KEY` | Local | Google Stitch API key |
+| `N2_API_KEY` | Cloud | N2 Cloud API key |
+| `N2_CLOUD_URL` | Cloud | Custom cloud endpoint (default: `https://cloud.nton2.com`) |
+| `STITCH_HOST` | Local | Custom Stitch API endpoint |
+| `STITCH_DEBUG` | Both | Enable debug logging (`1`) |
 
-## 📦 Commands
+## 📦 CLI Commands
 
 ```bash
-# Setup wizard (checks gcloud, tests Stitch API)
+# Setup wizard — checks gcloud, tests Stitch API
 npx n2-stitch-mcp init
 
 # Run in local mode
 npx n2-stitch-mcp
 
 # Run in cloud mode
-N2_API_KEY=n2_sk_live_xxx npx n2-stitch-mcp --cloud
+npx n2-stitch-mcp --cloud
 ```
 
 ## 🔗 Links
 
 - **N2 Cloud**: [cloud.nton2.com](https://cloud.nton2.com)
 - **NPM**: [npmjs.com/package/n2-stitch-mcp](https://www.npmjs.com/package/n2-stitch-mcp)
-- **GitHub**: [github.com/choihyunsus/n2-stitch-mcp](https://github.com/choihyunsus/n2-stitch-mcp)
+- **Google Stitch**: [stitch.withgoogle.com](https://stitch.withgoogle.com/)
 
 ## License
 

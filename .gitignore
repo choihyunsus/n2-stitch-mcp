@@ -1,12 +1,21 @@
+# Dependencies
 node_modules/
-cloud/node_modules/
-cloud/data/*.db
-cloud/data/*.db-shm
-cloud/data/*.db-wal
-cloud/data/users.json
-cloud/data/oauth-users.json
+
+# Cloud server (private)
+cloud/
+
+# Internal
+_history/
+skills/
+test.js
+cloud/test.js
+cloud/scripts/
+
+# Environment
 .env
-*.log
+.env.*
+
+# System
 .DS_Store
 
 # Backup files
